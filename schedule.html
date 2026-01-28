@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule & Quote - NaviX Maritime Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="NaviX Logo">
+                <span>NaviX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">HOME</a></li>
+                <li><a href="about.html" data-i18n="nav.about">ABOUT</a></li>
+                <li><a href="services.html" data-i18n="nav.services">SERVICES</a></li>
+                <li><a href="schedule.html" data-i18n="nav.schedule" class="active">SCHEDULE & QUOTE</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">RESOURCES</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">CONTACT</a></li>
+                <li><button class="lang-toggle">EN/VI</button></li>
+                <li><a href="#quote" class="cta-nav-btn" data-i18n="nav.getquote">GET QUOTE</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <h1 class="section-title" data-i18n="schedule.title">FIXED & RELIABLE SAILING SCHEDULE</h1>
+        <div class="schedule-table-container">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="schedule.route">ROUTE</th>
+                        <th data-i18n="schedule.vessel">VESSEL</th>
+                        <th data-i18n="schedule.frequency">FREQUENCY</th>
+                        <th data-i18n="schedule.next">NEXT AVAILABLE</th>
+                        <th data-i18n="schedule.status">STATUS</th>
+                        <th data-i18n="schedule.book">BOOK NOW</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Route" data-i18n="schedule.route1">Can Tho → Cai Mep</td>
+                        <td data-label="Vessel">Alizé I</td>
+                        <td data-label="Frequency" data-i18n="schedule.frequency1">15 trips/month</td>
+                        <td data-label="Next Available">Jan 15, 2026</td>
+                        <td data-label="Status"><span class="status-badge open" data-i18n="schedule.open">● OPEN</span></td>
+                        <td data-label="Book"><a href="#quote" class="select-btn" data-i18n="schedule.select">SELECT</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Route" data-i18n="schedule.route2">Cai Mep → Shenzhen</td>
+                        <td data-label="Vessel">Aquaterra I</td>
+                        <td data-label="Frequency" data-i18n="schedule.frequency2">4 trips/month</td>
+                        <td data-label="Next Available">Jan 18, 2026</td>
+                        <td data-label="Status"><span class="status-badge open" data-i18n="schedule.open">● OPEN</span></td>
+                        <td data-label="Book"><a href="#quote" class="select-btn" data-i18n="schedule.select">SELECT</a></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Route" data-i18n="schedule.route3">Shenzhen → Cai Mep</td>
+                        <td data-label="Vessel">Aquaterra I</td>
+                        <td data-label="Frequency" data-i18n="schedule.frequency2">4 trips/month</td>
+                        <td data-label="Next Available">Jan 22, 2026</td>
+                        <td data-label="Status"><span class="status-badge open" data-i18n="schedule.open">● OPEN</span></td>
+                        <td data-label="Book"><a href="#quote" class="select-btn" data-i18n="schedule.select">SELECT</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="schedule-note" data-i18n="schedule.note">*Schedule is updated in real-time. Dates are subject to weather conditions and port operations. All times are Vietnam Time (GMT+7).</p>
+        </div>
+    </section>
+
+    <!-- Quote Calculator Section -->
+    <section id="quote" class="quote-calculator-section">
+        <h1 class="section-title" data-i18n="schedule.quote.title">GET YOUR INSTANT FREIGHT QUOTE</h1>
+        
+        <div class="wizard-container">
+            <!-- Step Indicators -->
+            <div class="step-indicators">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label" data-i18n="schedule.wizard.step1">Select Route</div>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label" data-i18n="schedule.wizard.step2">Cargo Details</div>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label" data-i18n="schedule.wizard.step3">Services</div>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label" data-i18n="schedule.wizard.step4">Contact</div>
+                </div>
+            </div>
+
+            <!-- Form Steps -->
+            <form id="quoteWizard">
+                <!-- Step 1: Select Route -->
+                <div class="wizard-step active" data-step="1">
+                    <h2 data-i18n="schedule.step1.title">STEP 1: SELECT ROUTE</h2>
+                    <div class="route-cards">
+                        <label class="route-card">
+                            <input type="radio" name="route" value="domestic" required>
+                            <div class="route-card-content">
+                                <h3 data-i18n="schedule.step1.route1">CAN THO → CAI MEP</h3>
+                                <p class="route-desc" data-i18n="schedule.step1.route1.desc">Best for: Domestic transport, port connection</p>
+                                <p class="route-price" data-i18n="schedule.step1.route1.price">From: 280,000 VND/ton</p>
+                            </div>
+                        </label>
+                        <label class="route-card">
+                            <input type="radio" name="route" value="international" required>
+                            <div class="route-card-content">
+                                <h3 data-i18n="schedule.step1.route2">CAI MEP → SHENZHEN</h3>
+                                <p class="route-desc" data-i18n="schedule.step1.route2.desc">Best for: Export to China</p>
+                                <p class="route-price" data-i18n="schedule.step1.route2.price">From: 1,340,000 VND/TEU</p>
+                            </div>
+                        </label>
+                        <label class="route-card">
+                            <input type="radio" name="route" value="all-in-one" required>
+                            <div class="route-card-content">
+                                <h3 data-i18n="schedule.step1.route3">ALL-IN-ONE</h3>
+                                <p class="route-desc" data-i18n="schedule.step1.route3.desc">Best for: Complete export solution</p>
+                                <p class="route-price" data-i18n="schedule.step1.route3.price">From: Contact for quote</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button type="button" class="btn-next" data-i18n="schedule.btn.next">NEXT STEP →</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Cargo Details -->
+                <div class="wizard-step" data-step="2">
+                    <h2 data-i18n="schedule.step2.title">STEP 2: CARGO DETAILS</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="cargoType" data-i18n="schedule.step2.cargo.label">Cargo Type *</label>
+                            <select id="cargoType" required>
+                                <option value="" data-i18n="schedule.step2.cargo.placeholder">Select cargo type...</option>
+                                <option value="general" data-i18n="schedule.step2.cargo.general">📦 General Goods</option>
+                                <option value="refrigerated" data-i18n="schedule.step2.cargo.refrigerated">❄️ Refrigerated</option>
+                                <option value="agriculture" data-i18n="schedule.step2.cargo.agriculture">🌾 Agriculture</option>
+                                <option value="fisheries" data-i18n="schedule.step2.cargo.fisheries">🐟 Fisheries</option>
+                                <option value="dangerous" data-i18n="schedule.step2.cargo.dangerous">⚠️ Dangerous Goods</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="containerType" data-i18n="schedule.step2.container.label">Container Type *</label>
+                            <select id="containerType" required>
+                                <option value="" data-i18n="schedule.step2.container.placeholder">Select container type...</option>
+                                <option value="lcl" data-i18n="schedule.step2.container.lcl">LCL (Less than Container Load)</option>
+                                <option value="20ft" data-i18n="schedule.step2.container.20ft">20FT Standard Container</option>
+                                <option value="40ft" data-i18n="schedule.step2.container.40ft">40FT Standard Container</option>
+                                <option value="40hc" data-i18n="schedule.step2.container.40hc">40FT High Cube Container</option>
+                                <option value="40reefer" data-i18n="schedule.step2.container.40reefer">40FT Reefer Container</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="weight" data-i18n="schedule.step2.weight">Weight (tons) *</label>
+                            <input type="number" id="weight" required min="0.1" step="0.1" placeholder="0.0">
+                        </div>
+                        <div class="form-group">
+                            <label for="volume" data-i18n="schedule.step2.volume">Volume (m³)</label>
+                            <input type="number" id="volume" min="0.1" step="0.1" placeholder="0.0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cargoDesc" data-i18n="schedule.step2.description">Cargo Description</label>
+                        <textarea id="cargoDesc" rows="3" data-i18n="schedule.step2.description.placeholder" placeholder="Briefly describe your cargo..."></textarea>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button type="button" class="btn-back" data-i18n="schedule.btn.back">← BACK</button>
+                        <button type="button" class="btn-next" data-i18n="schedule.btn.next">NEXT STEP →</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Additional Services -->
+                <div class="wizard-step" data-step="3">
+                    <h2 data-i18n="schedule.step3.title">STEP 3: ADDITIONAL SERVICES</h2>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="reefer" value="1">
+                            <span data-i18n="schedule.step3.reefer">Refrigerated Container Service (+15%)</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="customs" value="1">
+                            <span data-i18n="schedule.step3.customs">Customs Clearance Support (+8%)</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="documentation" value="1">
+                            <span data-i18n="schedule.step3.documentation">Documentation Service (+5%)</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="warehouse" value="1">
+                            <span data-i18n="schedule.step3.warehouse">Warehousing (7 days free)</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="pickup" value="1">
+                            <span data-i18n="schedule.step3.pickup">Door-to-Port Pickup Service</span>
+                        </label>
+                    </div>
+                    <div class="insurance-options">
+                        <h3 data-i18n="schedule.step3.insurance">Insurance Options</h3>
+                        <label><input type="radio" name="insurance" value="0" checked> <span data-i18n="schedule.step3.insurance.basic">Basic Coverage (included)</span></label>
+                        <label><input type="radio" name="insurance" value="2"> <span data-i18n="schedule.step3.insurance.enhanced">Enhanced Coverage (+2%)</span></label>
+                        <label><input type="radio" name="insurance" value="5"> <span data-i18n="schedule.step3.insurance.full">Full Comprehensive (+5%)</span></label>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button type="button" class="btn-back" data-i18n="schedule.btn.back">← BACK</button>
+                        <button type="button" class="btn-next" data-i18n="schedule.btn.next">NEXT STEP →</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact & Finalize -->
+                <div class="wizard-step" data-step="4">
+                    <h2 data-i18n="schedule.step4.title">STEP 4: CONTACT & FINALIZE</h2>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName" data-i18n="schedule.step4.fullname">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-i18n="schedule.step4.company">Company *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="schedule.step4.email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="schedule.step4.phone">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="schedule.step4.contact.method">Preferred Contact Method</label>
+                        <div class="checkbox-group horizontal">
+                            <label><input type="radio" name="contactMethod" value="email" checked> <span data-i18n="schedule.step4.method.email">Email</span></label>
+                            <label><input type="radio" name="contactMethod" value="phone"> <span data-i18n="schedule.step4.method.phone">Phone</span></label>
+                            <label><input type="radio" name="contactMethod" value="whatsapp"> <span data-i18n="schedule.step4.method.whatsapp">WhatsApp</span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="instructions" data-i18n="schedule.step4.instructions">Special Instructions</label>
+                        <textarea id="instructions" name="instructions" rows="3"></textarea>
+                    </div>
+                    <div class="wizard-buttons">
+                        <button type="button" class="btn-back" data-i18n="schedule.btn.back">← BACK</button>
+                        <button type="submit" class="btn-calculate" data-i18n="schedule.btn.calculate">CALCULATE QUOTE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>NAVIX MARITIME SOLUTIONS</h3>
+                <p data-i18n="footer.tagline">"Accompanying and developing with SMEs"</p>
+                <div class="social-icons">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Facebook">f</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.quicklinks">QUICK LINKS</h3>
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About NaviX</a>
+                <a href="services.html" data-i18n="nav.services">Our Services</a>
+                <a href="schedule.html">Schedule & Rates</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.services">OUR SERVICES</h3>
+                <a href="services.html#inland">Inland Waterway Transport</a>
+                <a href="services.html#international">International Short-Sea Shipping</a>
+                <a href="services.html#all-in-one">All-in-One Logistics</a>
+                <a href="services.html#value-added">Value-Added Services</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.contact">CONTACT INFO</h3>
+                <p data-i18n="footer.headquarters">📍 Headquarters: Can Tho City, Vietnam</p>
+                <p>📧 Email: <a href="mailto:contact@navix.vn">contact@navix.vn</a></p>
+                <p>📞 Phone: +84 XXX XXX XXX</p>
+                <p data-i18n="footer.hours">🕐 Business Hours: Mon-Fri 8:00-18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 NaviX Maritime Solutions Co., Ltd. | <span data-i18n="footer.rights">All Rights Reserved</span> | <span data-i18n="footer.privacy">Privacy Policy</span> | <span data-i18n="footer.terms">Terms of Service</span></p>
+        </div>
+    </footer>
+
+    <!-- Quote Result Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="color: var(--primary-blue); margin-bottom: 1rem;" data-i18n="modal.title">YOUR CUSTOM FREIGHT QUOTE</h2>
+            <p style="color: var(--light-gray); margin-bottom: 2rem;"><span data-i18n="modal.reference">Reference</span>: #NXQ-<span id="quoteRef"></span></p>
+            
+            <div class="quote-result">
+                <h3 data-i18n="modal.summary">QUOTE SUMMARY</h3>
+                <div style="background: var(--bg-light); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                    <p><strong data-i18n="modal.route">Route:</strong> <span id="modalRoute"></span></p>
+                    <p><strong data-i18n="modal.cargo">Cargo:</strong> <span id="modalCargo"></span></p>
+                    <p><strong data-i18n="modal.vessel">Vessel:</strong> <span id="modalVessel"></span></p>
+                    <p><strong data-i18n="modal.transit">Estimated Transit:</strong> <span id="modalTransit"></span></p>
+                </div>
+
+                <h3 style="margin-top: 2rem;" data-i18n="modal.breakdown">COST BREAKDOWN</h3>
+                <div class="cost-breakdown">
+                    <div class="cost-item">
+                        <span data-i18n="modal.base">Base Freight:</span>
+                        <span id="baseCost"></span>
+                    </div>
+                    <div class="cost-item">
+                        <span data-i18n="modal.reefer">Reefer Service Surcharge:</span>
+                        <span id="reeferCost"></span>
+                    </div>
+                    <div class="cost-item">
+                        <span data-i18n="modal.customs">Customs Clearance:</span>
+                        <span id="customsCost"></span>
+                    </div>
+                    <div class="cost-item">
+                        <span data-i18n="modal.doc">Documentation Fee:</span>
+                        <span id="docCost"></span>
+                    </div>
+                    <div class="cost-item total">
+                        <span data-i18n="modal.total">TOTAL ESTIMATED COST:</span>
+                        <span id="totalCost"></span>
+                    </div>
+                </div>
+                <p style="text-align: center; color: var(--light-gray); margin-top: 1rem;"><span data-i18n="modal.valid">Valid Until:</span> <span id="validDate"></span></p>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="secondary-btn" data-i18n="modal.download">DOWNLOAD PDF QUOTE</button>
+                <button class="secondary-btn" onclick="document.getElementById('quoteModal').style.display='none'" data-i18n="modal.modify">MODIFY QUOTE</button>
+                <button class="primary-btn" data-i18n="modal.proceed">PROCEED TO BOOKING</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

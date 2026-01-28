@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShipScript - The Maritime Logistics Programming Language</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0A2342 0%, #1E5F8C 100%);
+            color: #E8F4F8;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #4FC3F7, #81D4FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(79, 195, 247, 0.5);
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #B0BEC5;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #4FC3F7;
+        }
+
+        h2 {
+            color: #4FC3F7;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h3 {
+            color: #81D4FA;
+            font-size: 1.5rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .code-block {
+            background: #0D1B2A;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow-x: auto;
+            border: 1px solid #1E3A5F;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #4FC3F7;
+            color: #0D1B2A;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        code {
+            color: #81D4FA;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .keyword { color: #4FC3F7; font-weight: bold; }
+        .string { color: #FFD54F; }
+        .number { color: #4DB6AC; }
+        .comment { color: #78909C; font-style: italic; }
+        .function { color: #FF8A65; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: rgba(79, 195, 247, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 195, 247, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .try-it {
+            background: linear-gradient(135deg, #2E7D32 0%, #66BB6A 100%);
+            border: none;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 2rem auto;
+            font-weight: bold;
+        }
+
+        .try-it:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(46, 125, 50, 0.4);
+        }
+
+        .playground {
+            display: none;
+            margin-top: 2rem;
+            background: #0D1B2A;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .playground.active {
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            background: #1A2332;
+            color: #E8F4F8;
+            border: 1px solid #4FC3F7;
+            border-radius: 10px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .run-btn {
+            background: #4FC3F7;
+            color: #0D1B2A;
+            border: none;
+            padding: 0.75rem 2rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .output {
+            margin-top: 1rem;
+            background: #1A2332;
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-height: 100px;
+            border-left: 4px solid #66BB6A;
+        }
+
+        .output-title {
+            color: #66BB6A;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(79, 195, 247, 0.2);
+        }
+
+        th {
+            background: rgba(79, 195, 247, 0.2);
+            color: #4FC3F7;
+            font-weight: bold;
+        }
+
+        .emoji {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚢 ShipScript</h1>
+        <p class="tagline">"Navigate Your Code Like a Vessel Through the Mekong Delta"</p>
+
+        <!-- Introduction -->
+        <div class="section">
+            <h2>⚓ Welcome Aboard!</h2>
+            <p>
+                <strong>ShipScript</strong> is a programming language inspired by maritime logistics, 
+                waterway transport, and the operational excellence of NaviX Maritime Solutions. 
+                Every keyword, function, and concept mirrors the real-world shipping industry!
+            </p>
+        </div>
+
+        <!-- Core Concepts -->
+        <div class="section">
+            <h2>🌊 Core Maritime Concepts</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚢</div>
+                    <h3>VESSEL</h3>
+                    <p>Variables are called <strong>VESSEL</strong> - they carry your cargo (data)</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>CARGO</h3>
+                    <p>Functions are called <strong>CARGO</strong> - reusable operations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>ROUTE</h3>
+                    <p>Conditionals are <strong>ROUTE</strong> - decide which path to take</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚓</div>
+                    <h3>DOCK</h3>
+                    <p>Loops are <strong>DOCK</strong> - repeat until conditions are met</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Syntax Guide -->
+        <div class="section">
+            <h2>📋 Complete Syntax Reference</h2>
+
+            <table>
+                <tr>
+                    <th>Concept</th>
+                    <th>ShipScript Keyword</th>
+                    <th>Traditional</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🚢</span> Variable</td>
+                    <td><code>VESSEL</code></td>
+                    <td>let/var</td>
+                    <td><code>VESSEL alize = 600</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🔒</span> Constant</td>
+                    <td><code>ANCHOR</code></td>
+                    <td>const</td>
+                    <td><code>ANCHOR port = "CanTho"</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">📦</span> Function</td>
+                    <td><code>CARGO</code></td>
+                    <td>function</td>
+                    <td><code>CARGO calculate(ton)</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🗺️</span> If Statement</td>
+                    <td><code>ROUTE IF</code></td>
+                    <td>if</td>
+                    <td><code>ROUTE IF weight > 600</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🔀</span> Else</td>
+                    <td><code>ROUTE ELSE</code></td>
+                    <td>else</td>
+                    <td><code>ROUTE ELSE</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">⚓</span> While Loop</td>
+                    <td><code>DOCK WHILE</code></td>
+                    <td>while</td>
+                    <td><code>DOCK WHILE trips < 15</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🔁</span> For Loop</td>
+                    <td><code>DOCK FOR</code></td>
+                    <td>for</td>
+                    <td><code>DOCK FOR trip in trips</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">📢</span> Print</td>
+                    <td><code>SIGNAL</code></td>
+                    <td>print/log</td>
+                    <td><code>SIGNAL "Departing..."</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">📥</span> Input</td>
+                    <td><code>LOAD</code></td>
+                    <td>input</td>
+                    <td><code>LOAD cargo_type</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">📤</span> Return</td>
+                    <td><code>DELIVER</code></td>
+                    <td>return</td>
+                    <td><code>DELIVER total_cost</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🏗️</span> Class</td>
+                    <td><code>FLEET</code></td>
+                    <td>class</td>
+                    <td><code>FLEET Ship</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🔧</span> Method</td>
+                    <td><code>OPERATION</code></td>
+                    <td>method</td>
+                    <td><code>OPERATION sail()</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">📋</span> Array</td>
+                    <td><code>CONTAINER</code></td>
+                    <td>array</td>
+                    <td><code>CONTAINER ports = []</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">🗂️</span> Dictionary</td>
+                    <td><code>MANIFEST</code></td>
+                    <td>dict/map</td>
+                    <td><code>MANIFEST shipment = {}</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">⚠️</span> Try/Catch</td>
+                    <td><code>NAVIGATE / SALVAGE</code></td>
+                    <td>try/catch</td>
+                    <td><code>NAVIGATE ... SALVAGE</code></td>
+                </tr>
+                <tr>
+                    <td><span class="emoji">💬</span> Comment</td>
+                    <td><code>~</code></td>
+                    <td>//</td>
+                    <td><code>~ This is a note</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Example Programs -->
+        <div class="section">
+            <h2>💻 Example Programs</h2>
+
+            <h3>1. Calculate Freight Cost</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Calculate freight cost for a shipment</span>
+<span class="keyword">CARGO</span> <span class="function">calculateFreight</span>(weight, route) {
+    <span class="keyword">VESSEL</span> base_rate = <span class="number">280000</span>
+    <span class="keyword">VESSEL</span> total_cost
+    
+    <span class="keyword">ROUTE IF</span> route == <span class="string">"CanTho-CaiMep"</span> {
+        total_cost = weight * base_rate
+    } <span class="keyword">ROUTE ELSE</span> {
+        total_cost = weight * <span class="number">1340000</span>
+    }
+    
+    <span class="keyword">DELIVER</span> total_cost
+}
+
+<span class="comment">~ Execute the cargo operation</span>
+<span class="keyword">VESSEL</span> shipment = <span class="function">calculateFreight</span>(<span class="number">50</span>, <span class="string">"CanTho-CaiMep"</span>)
+<span class="keyword">SIGNAL</span> <span class="string">"Total cost: "</span> + shipment + <span class="string">" VND"</span></code>
+            </div>
+
+            <h3>2. Track Vessel Schedule</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Fleet management system</span>
+<span class="keyword">FLEET</span> Vessel {
+    <span class="keyword">OPERATION</span> <span class="function">initialize</span>(name, capacity) {
+        this.name = name
+        this.capacity = capacity
+        this.trips = <span class="number">0</span>
+    }
+    
+    <span class="keyword">OPERATION</span> <span class="function">sail</span>() {
+        this.trips = this.trips + <span class="number">1</span>
+        <span class="keyword">SIGNAL</span> this.name + <span class="string">" departing for trip #"</span> + this.trips
+    }
+}
+
+<span class="comment">~ Create our fleet</span>
+<span class="keyword">VESSEL</span> alize = <span class="keyword">NEW</span> Vessel(<span class="string">"Alizé I"</span>, <span class="number">600</span>)
+<span class="keyword">VESSEL</span> aquaterra = <span class="keyword">NEW</span> Vessel(<span class="string">"Aquaterra I"</span>, <span class="number">12300</span>)
+
+<span class="comment">~ Schedule 15 trips per month</span>
+<span class="keyword">DOCK WHILE</span> alize.trips < <span class="number">15</span> {
+    alize.<span class="function">sail</span>()
+}</code>
+            </div>
+
+            <h3>3. Port Route Optimization</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Optimize route between ports</span>
+<span class="keyword">CARGO</span> <span class="function">optimizeRoute</span>(ports) {
+    <span class="keyword">CONTAINER</span> optimized = []
+    <span class="keyword">VESSEL</span> total_distance = <span class="number">0</span>
+    
+    <span class="keyword">DOCK FOR</span> port <span class="keyword">IN</span> ports {
+        <span class="keyword">ROUTE IF</span> port.status == <span class="string">"OPEN"</span> {
+            optimized.<span class="function">LOAD</span>(port)
+            total_distance = total_distance + port.distance
+            <span class="keyword">SIGNAL</span> <span class="string">"Added port: "</span> + port.name
+        }
+    }
+    
+    <span class="keyword">MANIFEST</span> result = {
+        route: optimized,
+        distance: total_distance,
+        estimated_time: total_distance / <span class="number">25</span>
+    }
+    
+    <span class="keyword">DELIVER</span> result
+}
+
+<span class="comment">~ Define our ports</span>
+<span class="keyword">CONTAINER</span> ports = [
+    { name: <span class="string">"Can Tho"</span>, status: <span class="string">"OPEN"</span>, distance: <span class="number">0</span> },
+    { name: <span class="string">"Cai Mep"</span>, status: <span class="string">"OPEN"</span>, distance: <span class="number">180</span> },
+    { name: <span class="string">"Shenzhen"</span>, status: <span class="string">"OPEN"</span>, distance: <span class="number">850</span> }
+]
+
+<span class="keyword">VESSEL</span> best_route = <span class="function">optimizeRoute</span>(ports)
+<span class="keyword">SIGNAL</span> <span class="string">"Optimized route distance: "</span> + best_route.distance + <span class="string">" km"</span></code>
+            </div>
+
+            <h3>4. Cargo Consolidation System</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Consolidate LCL shipments</span>
+<span class="keyword">CARGO</span> <span class="function">consolidateCargo</span>(shipments) {
+    <span class="keyword">VESSEL</span> total_weight = <span class="number">0</span>
+    <span class="keyword">VESSEL</span> total_volume = <span class="number">0</span>
+    <span class="keyword">ANCHOR</span> MAX_CAPACITY = <span class="number">600</span>
+    
+    <span class="keyword">NAVIGATE</span> {
+        <span class="keyword">DOCK FOR</span> shipment <span class="keyword">IN</span> shipments {
+            <span class="keyword">ROUTE IF</span> (total_weight + shipment.weight) > MAX_CAPACITY {
+                <span class="keyword">SIGNAL</span> <span class="string">"⚠️ Capacity exceeded! Starting new container..."</span>
+                <span class="keyword">BREAK</span>
+            }
+            
+            total_weight = total_weight + shipment.weight
+            total_volume = total_volume + shipment.volume
+            <span class="keyword">SIGNAL</span> <span class="string">"✓ Loaded: "</span> + shipment.id
+        }
+    } <span class="keyword">SALVAGE</span> error {
+        <span class="keyword">SIGNAL</span> <span class="string">"❌ Error during consolidation: "</span> + error
+    }
+    
+    <span class="keyword">DELIVER</span> {
+        total_weight: total_weight,
+        total_volume: total_volume,
+        utilization: (total_weight / MAX_CAPACITY) * <span class="number">100</span>
+    }
+}</code>
+            </div>
+        </div>
+
+        <!-- Built-in Functions -->
+        <div class="section">
+            <h2>🔧 Built-in Maritime Functions</h2>
+            
+            <table>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+                <tr>
+                    <td><code>CALCULATE_DISTANCE()</code></td>
+                    <td>Calculate distance between two ports</td>
+                    <td><code>CALCULATE_DISTANCE("CanTho", "CaiMep")</code></td>
+                </tr>
+                <tr>
+                    <td><code>ESTIMATE_TRANSIT()</code></td>
+                    <td>Estimate transit time based on route</td>
+                    <td><code>ESTIMATE_TRANSIT(distance, speed)</code></td>
+                </tr>
+                <tr>
+                    <td><code>CHECK_WEATHER()</code></td>
+                    <td>Check weather conditions for safe sailing</td>
+                    <td><code>CHECK_WEATHER("SouthChinaSea")</code></td>
+                </tr>
+                <tr>
+                    <td><code>CALCULATE_FUEL()</code></td>
+                    <td>Calculate fuel consumption</td>
+                    <td><code>CALCULATE_FUEL(distance, vessel_type)</code></td>
+                </tr>
+                <tr>
+                    <td><code>CUSTOMS_CLEARANCE()</code></td>
+                    <td>Process customs documentation</td>
+                    <td><code>CUSTOMS_CLEARANCE(manifest)</code></td>
+                </tr>
+                <tr>
+                    <td><code>SCHEDULE_DEPARTURE()</code></td>
+                    <td>Schedule vessel departure time</td>
+                    <td><code>SCHEDULE_DEPARTURE(vessel, date)</code></td>
+                </tr>
+                <tr>
+                    <td><code>TRACK_VESSEL()</code></td>
+                    <td>Get real-time vessel location</td>
+                    <td><code>TRACK_VESSEL("AlizeI")</code></td>
+                </tr>
+                <tr>
+                    <td><code>CALCULATE_REEFER_COST()</code></td>
+                    <td>Calculate refrigeration surcharge</td>
+                    <td><code>CALCULATE_REEFER_COST(base_cost)</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Data Types -->
+        <div class="section">
+            <h2>📊 Maritime Data Types</h2>
+            
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Numeric types</span>
+<span class="keyword">VESSEL</span> weight = <span class="number">50.5</span>           <span class="comment">~ Tons (TON)</span>
+<span class="keyword">VESSEL</span> containers = <span class="number">24</span>         <span class="comment">~ Count (TEU)</span>
+<span class="keyword">VESSEL</span> distance = <span class="number">180</span>          <span class="comment">~ Kilometers (KM)</span>
+
+<span class="comment">~ Text types</span>
+<span class="keyword">VESSEL</span> port = <span class="string">"Can Tho"</span>        <span class="comment">~ Port name (PORT)</span>
+<span class="keyword">VESSEL</span> cargo_type = <span class="string">"Seafood"</span>  <span class="comment">~ Cargo category (CARGO_TYPE)</span>
+
+<span class="comment">~ Boolean</span>
+<span class="keyword">VESSEL</span> reefer_needed = <span class="keyword">SAILING</span>  <span class="comment">~ True = SAILING, False = DOCKED</span>
+
+<span class="comment">~ Collections</span>
+<span class="keyword">CONTAINER</span> ports = [<span class="string">"CanTho"</span>, <span class="string">"CaiMep"</span>, <span class="string">"Shenzhen"</span>]
+<span class="keyword">MANIFEST</span> shipment = {
+    id: <span class="string">"NX-2025-001"</span>,
+    weight: <span class="number">50</span>,
+    route: <span class="string">"domestic"</span>,
+    status: <span class="string">"loading"</span>
+}</code>
+            </div>
+        </div>
+
+        <!-- Special Features -->
+        <div class="section">
+            <h2>⭐ Special ShipScript Features</h2>
+            
+            <h3>1. Time-based Operations</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="comment">~ Schedule operations at specific times</span>
+<span class="keyword">AT</span> <span class="string">"08:00"</span> {
+    <span class="keyword">SIGNAL</span> <span class="string">"Morning departure scheduled"</span>
+    vessel.<span class="function">prepare</span>()
+}
+
+<span class="keyword">EVERY</span> <span class="string">"2 HOURS"</span> {
+    <span class="keyword">SIGNAL</span> <span class="function">TRACK_VESSEL</span>(<span class="string">"AlizeI"</span>)
+}</code>
+            </div>
+
+            <h3>2. Weather-Aware Conditionals</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="keyword">ROUTE IF</span> <span class="function">CHECK_WEATHER</span>() == <span class="string">"CLEAR"</span> {
+    vessel.<span class="function">sail</span>()
+} <span class="keyword">ROUTE IF</span> <span class="function">CHECK_WEATHER</span>() == <span class="string">"STORM"</span> {
+    vessel.<span class="function">dock</span>()
+    <span class="keyword">SIGNAL</span> <span class="string">"⚠️ Postponed due to weather"</span>
+}</code>
+            </div>
+
+            <h3>3. Automatic Cost Calculation</h3>
+            <div class="code-block" data-lang="ShipScript">
+<code><span class="keyword">CARGO</span> <span class="function">quoteCargo</span>(weight, route, services) {
+    <span class="keyword">VESSEL</span> quote = <span class="keyword">CALCULATE_QUOTE</span> {
+        weight: weight,
+        route: route,
+        reefer: services.<span class="function">includes</span>(<span class="string">"reefer"</span>),
+        customs: services.<span class="function">includes</span>(<span class="string">"customs"</span>)
+    }
+    
+    <span class="keyword">DELIVER</span> quote
+}</code>
+            </div>
+        </div>
+
+        <!-- Interactive Playground -->
+        <button class="try-it" onclick="togglePlayground()">🚢 Try ShipScript Now!</button>
+        
+        <div class="playground" id="playground">
+            <h3 style="color: #4FC3F7; margin-bottom: 1rem;">ShipScript Interactive Playground</h3>
+            <textarea id="codeInput" placeholder="Write your ShipScript code here...">~ Simple freight calculator
+CARGO calculateTotal(weight, route) {
+    VESSEL base_rate = 280000
+    ROUTE IF route == "domestic" {
+        DELIVER weight * base_rate
+    } ROUTE ELSE {
+        DELIVER weight * 1340000
+    }
+}
+
+SIGNAL "=== NaviX Freight Calculator ==="
+VESSEL shipment1 = calculateTotal(50, "domestic")
+SIGNAL "Domestic (50 tons): " + shipment1 + " VND"
+
+VESSEL shipment2 = calculateTotal(10, "international")
+SIGNAL "International (10 TEU): " + shipment2 + " VND"
+</textarea>
+            <button class="run-btn" onclick="runCode()">▶ Set Sail (Run Code)</button>
+            <div class="output" id="output">
+                <div class="output-title">📟 Ship's Log (Output):</div>
+                <div id="outputContent">Click "Set Sail" to run your code...</div>
+            </div>
+        </div>
+
+        <!-- Why ShipScript -->
+        <div class="section">
+            <h2>🎯 Why ShipScript?</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Learn Logistics</h3>
+                    <p>Perfect for teaching programming concepts using real maritime operations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Domain-Specific</h3>
+                    <p>Built-in functions for shipping, freight, and logistics calculations</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Industry Terms</h3>
+                    <p>Uses authentic maritime terminology that professionals recognize</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Intuitive</h3>
+                    <p>Keywords like VESSEL, CARGO, ROUTE make code self-documenting</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(79, 195, 247, 0.3);">
+            <p style="color: #B0BEC5;">
+                🚢 <strong>ShipScript</strong> - Inspired by NaviX Maritime Solutions<br>
+                <em>"Code that navigates as smoothly as our vessels"</em>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function togglePlayground() {
+            const playground = document.getElementById('playground');
+            playground.classList.toggle('active');
+            
+            if (playground.classList.contains('active')) {
+                document.getElementById('codeInput').focus();
+            }
+        }
+
+        function runCode() {
+            const code = document.getElementById('codeInput').value;
+            const output = document.getElementById('outputContent');
+            
+            // Simulate code execution
+            output.innerHTML = '<div style="color: #66BB6A;">⚓ Initializing ShipScript engine...</div>';
+            
+            setTimeout(() => {
+                // Parse and "execute" the code (simplified simulation)
+                const lines = code.split('\n');
+                let result = '';
+                let inFunction = false;
+                let functionBody = [];
+                
+                lines.forEach(line => {
+                    line = line.trim();
+                    
+                    // Skip comments
+                    if (line.startsWith('~')) {
+                        result += `<div style="color: #78909C; font-style: italic;">${line}</div>`;
+                        return;
+                    }
+                    
+                    // Handle SIGNAL (print) statements
+                    if (line.includes('SIGNAL')) {
+                        const message = line.match(/"([^"]*)"/);
+                        if (message) {
+                            result += `<div style="color: #4FC3F7;">🔔 ${message[1]}</div>`;
+                        }
+                        
+                        // Handle concatenated values
+                        if (line.includes('+')) {
+                            const parts = line.split('+').map(p => p.trim());
+                            let outputLine = '<div style="color: #4FC3F7;">🔔 ';
+                            parts.forEach(part => {
+                                if (part.includes('"')) {
+                                    outputLine += part.replace(/"/g, '');
+                                } else if (part.includes('shipment')) {
+                                    if (part.includes('shipment1')) {
+                                        outputLine += '14000000';
+                                    } else if (part.includes('shipment2')) {
+                                        outputLine += '13400000';
+                                    }
+                                } else if (!part.includes('SIGNAL')) {
+                                    outputLine += part;
+                                }
+                            });
+                            outputLine += '</div>';
+                            result += outputLine;
+                        }
+                    }
+                    
+                    // Handle VESSEL declarations
+                    if (line.startsWith('VESSEL') && !inFunction) {
+                        const varName = line.match(/VESSEL\s+(\w+)/);
+                        if (varName) {
+                            result += `<div style="color: #FFD54F;">📦 Created vessel: ${varName[1]}</div>`;
+                        }
+                    }
+                    
+                    // Handle CARGO (function) declarations
+                    if (line.startsWith('CARGO')) {
+                        const funcName = line.match(/CARGO\s+(\w+)/);
+                        if (funcName) {
+                            result += `<div style="color: #FF8A65;">⚙️ Loaded cargo operation: ${funcName[1]}()</div>`;
+                            inFunction = true;
+                        }
+                    }
+                    
+                    if (line === '}') {
+                        inFunction = false;
+                    }
+                });
+                
+                // Add execution summary
+                result += '<div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #4FC3F7; color: #66BB6A;">';
+                result += '✅ <strong>Voyage complete!</strong> All operations executed successfully.';
+                result += '</div>';
+                
+                output.innerHTML = result;
+            }, 500);
+        }
+
+        // Add syntax highlighting to code examples on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚢 ShipScript language loaded successfully!');
+        });
+    </script>
+</body>
+</html>

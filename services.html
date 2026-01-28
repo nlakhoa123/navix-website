@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - NaviX Maritime Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="NaviX Logo">
+                <span>NaviX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">HOME</a></li>
+                <li><a href="about.html" data-i18n="nav.about">ABOUT</a></li>
+                <li><a href="services.html" data-i18n="nav.services">SERVICES</a></li>
+                <li><a href="schedule.html" data-i18n="nav.schedule">SCHEDULE & QUOTE</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">RESOURCES</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">CONTACT</a></li>
+                <li><button class="lang-toggle">EN/VI</button></li>
+                <li><a href="schedule.html#quote" class="cta-nav-btn" data-i18n="nav.getquote">GET QUOTE</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Service Tabs Navigation -->
+    <section class="services-page">
+        <div class="tabs-container">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="inland" data-i18n="svc.tab.inland">INLAND WATERWAY</button>
+                <button class="tab-btn" data-tab="international" data-i18n="svc.tab.international">INTERNATIONAL</button>
+                <button class="tab-btn" data-tab="all-in-one" data-i18n="svc.tab.allinone">ALL-IN-ONE</button>
+                <button class="tab-btn" data-tab="value-added" data-i18n="svc.tab.valueadded">VALUE-ADDED</button>
+            </div>
+
+            <!-- Tab 1: Inland Waterway Transport -->
+            <div id="inland" class="tab-content active">
+                <div class="tab-hero">
+                    <h1 data-i18n="svc.inland.title">INLAND WATERWAY TRANSPORT</h1>
+                    <p data-i18n="svc.inland.subtitle">Connecting the Heart of Mekong Delta to International Gateways</p>
+                </div>
+
+                <div class="service-details-box">
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.route">ROUTE:</strong> <span data-i18n="svc.inland.route">Can Tho ⇄ Cai Mep / Ho Chi Minh City</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.vessel">VESSEL:</strong> <span data-i18n="svc.inland.vessel">NaviX Alizé I (600 DWT)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.frequency">FREQUENCY:</strong> <span data-i18n="svc.inland.frequency">15 trips/month (Fixed Schedule)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.price">PRICE:</strong> <span data-i18n="svc.inland.price">280,000 VND/ton (All-inclusive)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.transit">ESTIMATED TRANSIT TIME:</strong> <span data-i18n="svc.inland.transit">1-2 days</span>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h2 data-i18n="svc.benefits.title">KEY BENEFITS</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.cost.title">COST SAVINGS:</strong> <span data-i18n="svc.benefits.cost.desc">30-50% cheaper than road transport</span></div>
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.schedule.title">SCHEDULE RELIABILITY:</strong> <span data-i18n="svc.benefits.schedule.desc">Owned vessel ensures fixed timetable</span></div>
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.lcl.title">LCL CONSOLIDATION:</strong> <span data-i18n="svc.benefits.lcl.desc">Perfect for SMEs with smaller shipments</span></div>
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.reefer.title">REEFER CAPABILITY:</strong> <span data-i18n="svc.benefits.reefer.desc">Temperature-controlled options available</span></div>
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.direct.title">DIRECT PORT CONNECTION:</strong> <span data-i18n="svc.benefits.direct.desc">Seamless transfer to international vessels at Cai Mep</span></div>
+                        <div class="benefit-item">✓ <strong data-i18n="svc.benefits.safety.title">SAFETY:</strong> <span data-i18n="svc.benefits.safety.desc">Reduced road congestion and accident risks</span></div>
+                    </div>
+                </div>
+
+                <div class="process-flow">
+                    <h2 data-i18n="svc.process.title">SERVICE PROCESS</h2>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="step-icon">🚚</div>
+                            <h3 data-i18n="svc.process.pickup.title">PICKUP</h3>
+                            <p data-i18n="svc.process.pickup.desc">Collection from your location in Mekong Delta</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-icon">📦</div>
+                            <h3 data-i18n="svc.process.consolidation.title">CONSOLIDATION</h3>
+                            <p data-i18n="svc.process.consolidation.desc">Sorting & documentation at Can Tho Hub</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-icon">🚢</div>
+                            <h3 data-i18n="svc.process.transport.title">TRANSPORT</h3>
+                            <p data-i18n="svc.process.transport.desc">Fixed-schedule voyage via Alizé I</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-icon">📍</div>
+                            <h3 data-i18n="svc.process.delivery.title">DELIVERY</h3>
+                            <p data-i18n="svc.process.delivery.desc">Arrival at Cai Mep Port for onward distribution</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3 data-i18n="svc.inland.cta.title">READY TO SHIP ON THIS ROUTE?</h3>
+                    <p data-i18n="svc.inland.cta.desc">Get a precise quote for your cargo today.</p>
+                    <a href="schedule.html#quote" class="btn-primary" data-i18n="svc.inland.cta.btn">REQUEST QUOTE FOR INLAND ROUTE</a>
+                </div>
+            </div>
+
+            <!-- Tab 2: International Short-Sea Shipping -->
+            <div id="international" class="tab-content">
+                <div class="tab-hero">
+                    <h1 data-i18n="svc.intl.title">INTERNATIONAL SHORT-SEA SHIPPING</h1>
+                    <p data-i18n="svc.intl.subtitle">Direct Route from Vietnam to Shenzhen, China</p>
+                </div>
+
+                <div class="service-details-box">
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.route">ROUTE:</strong> <span data-i18n="svc.intl.route">Cai Mep ⇄ Shenzhen (Round Trip)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.vessel">VESSEL:</strong> <span data-i18n="svc.intl.vessel">NaviX Aquaterra I (12,300 DWT)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.frequency">FREQUENCY:</strong> <span data-i18n="svc.intl.frequency">4 trips/month (Fixed Schedule)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.price">PRICE:</strong> <span data-i18n="svc.intl.price">1,340,000 VND/TEU (excluding surcharges)</span>
+                    </div>
+                    <div class="detail-item">
+                        <strong data-i18n="svc.detail.transit">ESTIMATED TRANSIT TIME:</strong> <span data-i18n="svc.intl.transit">3-5 days</span>
+                    </div>
+                </div>
+
+                <div class="round-trip-advantage">
+                    <h2 data-i18n="svc.intl.roundtrip.title">ROUND-TRIP ADVANTAGE</h2>
+                    <div class="trip-cards">
+                        <div class="trip-card">
+                            <h3 data-i18n="svc.intl.roundtrip.outbound.title">OUTBOUND (EXPORT)</h3>
+                            <p data-i18n="svc.intl.roundtrip.outbound.desc">Vietnamese goods → Shenzhen market</p>
+                        </div>
+                        <div class="trip-card">
+                            <h3 data-i18n="svc.intl.roundtrip.inbound.title">INBOUND (IMPORT)</h3>
+                            <p data-i18n="svc.intl.roundtrip.inbound.desc">Raw materials/containers from China → Vietnam</p>
+                        </div>
+                        <div class="trip-card highlight">
+                            <h3 data-i18n="svc.intl.roundtrip.efficient.title">MAXIMIZED EFFICIENCY</h3>
+                            <p data-i18n="svc.intl.roundtrip.efficient.desc">Full utilization reduces costs for all customers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="special-features">
+                    <h2 data-i18n="svc.intl.features.title">SPECIAL FEATURES</h2>
+                    <ul>
+                        <li><strong data-i18n="svc.intl.features.carrier">DIRECT CARRIER STATUS:</strong> <span data-i18n="svc.intl.features.carrier.desc">No intermediaries, better control</span></li>
+                        <li><strong data-i18n="svc.intl.features.backhaul">BACKHAUL OPTIMIZATION:</strong> <span data-i18n="svc.intl.features.backhaul.desc">Competitive rates on return journeys</span></li>
+                        <li><strong data-i18n="svc.intl.features.customs">CUSTOMS SUPPORT:</strong> <span data-i18n="svc.intl.features.customs.desc">Assistance at both Vietnamese and Chinese ports</span></li>
+                        <li><strong data-i18n="svc.intl.features.reefer">REEFER CONTAINERS:</strong> <span data-i18n="svc.intl.features.reefer.desc">Specialized for perishable exports (shrimp, fruits, fish)</span></li>
+                        <li><strong data-i18n="svc.intl.features.regular">REGULAR SCHEDULE:</strong> <span data-i18n="svc.intl.features.regular.desc">Dependable weekly departures</span></li>
+                    </ul>
+                </div>
+
+                <div class="cargo-types">
+                    <h2 data-i18n="svc.intl.cargo.title">TARGET CARGO TYPES</h2>
+                    <div class="cargo-grid">
+                        <div class="cargo-item">🌾 <span data-i18n="svc.intl.cargo.agri">Agricultural Products: Fruits, rice, vegetables</span></div>
+                        <div class="cargo-item">🐟 <span data-i18n="svc.intl.cargo.fish">Fisheries: Shrimp, Basa fish, frozen seafood</span></div>
+                        <div class="cargo-item">👕 <span data-i18n="svc.intl.cargo.manu">Manufactured Goods: Textiles, components</span></div>
+                        <div class="cargo-item">⚙️ <span data-i18n="svc.intl.cargo.raw">Raw Materials: Import for Vietnamese industry</span></div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3 data-i18n="svc.intl.cta.title">EXPORTING TO CHINA MADE SIMPLE</h3>
+                    <p data-i18n="svc.intl.cta.desc">Get your international shipping quote now.</p>
+                    <a href="schedule.html#quote" class="btn-primary" data-i18n="svc.intl.cta.btn">REQUEST QUOTE FOR SHENZHEN ROUTE</a>
+                </div>
+            </div>
+
+            <!-- Tab 3: All-in-One Solution -->
+            <div id="all-in-one" class="tab-content">
+                <div class="tab-hero">
+                    <h1 data-i18n="svc.aio.title">ALL-IN-ONE LOGISTICS SOLUTION</h1>
+                    <p data-i18n="svc.aio.subtitle">One Partner, Complete Supply Chain Management</p>
+                </div>
+
+                <div class="problem-solution">
+                    <div class="problem-box">
+                        <h3 data-i18n="svc.aio.problem.title">THE PROBLEM WE SOLVE</h3>
+                        <p data-i18n="svc.aio.problem.desc">Currently, 38.6% of SMEs use multiple logistics providers, creating complexity, hidden costs, and coordination challenges.</p>
+                    </div>
+                    <div class="solution-box">
+                        <h3 data-i18n="svc.aio.solution.title">OUR INTEGRATED SOLUTION</h3>
+                        <ul>
+                            <li><strong data-i18n="svc.aio.solution.single">SINGLE-POINT CONTACT:</strong> <span data-i18n="svc.aio.solution.single.desc">One responsible partner for everything</span></li>
+                            <li><strong data-i18n="svc.aio.solution.visibility">END-TO-END VISIBILITY:</strong> <span data-i18n="svc.aio.solution.visibility.desc">Track your shipment from farm to foreign market</span></li>
+                            <li><strong data-i18n="svc.aio.solution.cost">COST TRANSPARENCY:</strong> <span data-i18n="svc.aio.solution.cost.desc">No surprise fees from multiple vendors</span></li>
+                            <li><strong data-i18n="svc.aio.solution.time">TIME SAVINGS:</strong> <span data-i18n="svc.aio.solution.time.desc">Focus on your business, not logistics coordination</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-timeline">
+                    <h2 data-i18n="svc.aio.timeline.title">SERVICE PROCESS TIMELINE</h2>
+                    <div class="timeline-steps">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">🚚</div>
+                            <h4 data-i18n="svc.aio.timeline.step1.title">STEP 1: COLLECTION</h4>
+                            <p data-i18n="svc.aio.timeline.step1.desc">LCL pickup from your Mekong Delta location via our partner network</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">🏭</div>
+                            <h4 data-i18n="svc.aio.timeline.step2.title">STEP 2: CONSOLIDATION & PROCESSING</h4>
+                            <p data-i18n="svc.aio.timeline.step2.desc">Sorting, quality check, documentation at Can Tho Hub</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">🚢</div>
+                            <h4 data-i18n="svc.aio.timeline.step3.title">STEP 3: DOMESTIC TRANSPORT</h4>
+                            <p data-i18n="svc.aio.timeline.step3.desc">Fixed-schedule voyage to Cai Mep via Alizé I (15 trips/month)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">⚓</div>
+                            <h4 data-i18n="svc.aio.timeline.step4.title">STEP 4: PORT HANDLING</h4>
+                            <p data-i18n="svc.aio.timeline.step4.desc">Transfer to international vessel, customs preparation</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">🌊</div>
+                            <h4 data-i18n="svc.aio.timeline.step5.title">STEP 5: INTERNATIONAL SHIPPING</h4>
+                            <p data-i18n="svc.aio.timeline.step5.desc">Direct route to Shenzhen via Aquaterra I (4 trips/month)</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon">📋</div>
+                            <h4 data-i18n="svc.aio.timeline.step6.title">STEP 6: FINAL DELIVERY & SUPPORT</h4>
+                            <p data-i18n="svc.aio.timeline.step6.desc">Customs clearance in China, final delivery, documentation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="perfect-for">
+                    <h2 data-i18n="svc.aio.perfect.title">PERFECT FOR</h2>
+                    <div class="perfect-grid">
+                        <div>✓ <span data-i18n="svc.aio.perfect.1">SMEs exporting regularly to China</span></div>
+                        <div>✓ <span data-i18n="svc.aio.perfect.2">Businesses with 1–5 tons shipments (LCL)</span></div>
+                        <div>✓ <span data-i18n="svc.aio.perfect.3">Perishable goods requiring cold chain</span></div>
+                        <div>✓ <span data-i18n="svc.aio.perfect.4">Companies lacking in-house logistics expertise</span></div>
+                        <div>✓ <span data-i18n="svc.aio.perfect.5">Businesses seeking to reduce administrative burden</span></div>
+                    </div>
+                </div>
+
+                <div class="cta-box">
+                    <h3 data-i18n="svc.aio.cta.title">SIMPLIFY YOUR EXPORT PROCESS</h3>
+                    <p data-i18n="svc.aio.cta.desc">Get a comprehensive quote for our All-in-One solution.</p>
+                    <a href="schedule.html#quote" class="btn-primary" data-i18n="svc.aio.cta.btn">REQUEST ALL-IN-ONE QUOTE</a>
+                </div>
+            </div>
+
+            <!-- Tab 4: Value-Added Services -->
+            <div id="value-added" class="tab-content">
+                <div class="tab-hero">
+                    <h1 data-i18n="svc.vas.title">VALUE-ADDED SERVICES</h1>
+                    <p data-i18n="svc.vas.subtitle">Enhancing Your Competitive Edge</p>
+                </div>
+
+                <div class="vas-grid">
+                    <div class="vas-card">
+                        <div class="vas-icon">❄️</div>
+                        <h3 data-i18n="svc.vas.reefer.title">REEFER CONTAINER TRANSPORT</h3>
+                        <p><strong data-i18n="svc.vas.reefer.intro">Maintain perfect temperature for sensitive cargo:</strong></p>
+                        <ul>
+                            <li data-i18n="svc.vas.reefer.seafood">Frozen seafood (shrimp, Basa fish)</li>
+                            <li data-i18n="svc.vas.reefer.fruits">Fresh fruits and vegetables</li>
+                            <li data-i18n="svc.vas.reefer.pharma">Pharmaceuticals and temperature-sensitive goods</li>
+                        </ul>
+                        <p><strong data-i18n="svc.vas.reefer.features.title">Features:</strong> <span data-i18n="svc.vas.reefer.features.desc">Real-time monitoring, strict quality control, documentation support</span></p>
+                    </div>
+
+                    <div class="vas-card">
+                        <div class="vas-icon">📄</div>
+                        <h3 data-i18n="svc.vas.customs.title">CUSTOMS & EXPORT DOCUMENTATION</h3>
+                        <p><strong data-i18n="svc.vas.customs.intro">Navigate complex international regulations:</strong></p>
+                        <ul>
+                            <li data-i18n="svc.vas.customs.clearance">Customs clearance at Cai Mep and Shenzhen ports</li>
+                            <li data-i18n="svc.vas.customs.quarantine">Quarantine and quality certification for China exports</li>
+                            <li data-i18n="svc.vas.customs.prep">Documentation preparation and verification</li>
+                            <li data-i18n="svc.vas.customs.compliance">Regulatory compliance assistance for East Asia & Middle East markets</li>
+                        </ul>
+                    </div>
+
+                    <div class="vas-card">
+                        <div class="vas-icon">🏢</div>
+                        <h3 data-i18n="svc.vas.warehouse.title">SHORT-TERM WAREHOUSING</h3>
+                        <p><strong data-i18n="svc.vas.warehouse.intro">Flexible storage solutions:</strong></p>
+                        <ul>
+                            <li data-i18n="svc.vas.warehouse.location">Strategic locations at Can Tho and Cai Mep ports</li>
+                            <li data-i18n="svc.vas.warehouse.rental">Short-term rental for consolidation and distribution</li>
+                            <li data-i18n="svc.vas.warehouse.secure">Secure, monitored facilities</li>
+                            <li data-i18n="svc.vas.warehouse.inventory">Inventory management support</li>
+                        </ul>
+                    </div>
+
+                    <div class="vas-card">
+                        <div class="vas-icon">💬</div>
+                        <h3 data-i18n="svc.vas.consult.title">EXPORT CONSULTATION SERVICE</h3>
+                        <p><strong data-i18n="svc.vas.consult.intro">Expert guidance for market entry:</strong></p>
+                        <ul>
+                            <li data-i18n="svc.vas.consult.regulations">Chinese market regulations and requirements</li>
+                            <li data-i18n="svc.vas.consult.optimization">Export procedure optimization</li>
+                            <li data-i18n="svc.vas.consult.analysis">Cost analysis and logistics planning</li>
+                            <li data-i18n="svc.vas.consult.network">Partner network introductions in target markets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-bundles">
+                    <h2 data-i18n="svc.vas.bundles.title">SERVICE BUNDLES</h2>
+                    <div class="bundles-grid">
+                        <div class="bundle-card">
+                            <h3 data-i18n="svc.vas.bundles.bronze.title">BRONZE PACKAGE</h3>
+                            <p data-i18n="svc.vas.bundles.bronze.desc">Basic transport + documentation</p>
+                            <a href="schedule.html#quote" class="btn-secondary" data-i18n="svc.vas.bundles.getquote">GET QUOTE</a>
+                        </div>
+                        <div class="bundle-card featured">
+                            <div class="featured-badge" data-i18n="svc.vas.bundles.popular">POPULAR</div>
+                            <h3 data-i18n="svc.vas.bundles.silver.title">SILVER PACKAGE</h3>
+                            <p data-i18n="svc.vas.bundles.silver.desc">Transport + customs + basic consultation</p>
+                            <a href="schedule.html#quote" class="btn-primary" data-i18n="svc.vas.bundles.getquote">GET QUOTE</a>
+                        </div>
+                        <div class="bundle-card">
+                            <h3 data-i18n="svc.vas.bundles.gold.title">GOLD PACKAGE</h3>
+                            <p data-i18n="svc.vas.bundles.gold.desc">All-in-One + reefer service + premium support</p>
+                            <a href="schedule.html#quote" class="btn-secondary" data-i18n="svc.vas.bundles.getquote">GET QUOTE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>NAVIX MARITIME SOLUTIONS</h3>
+                <p data-i18n="footer.tagline">"Accompanying and developing with SMEs"</p>
+                <div class="social-icons">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Facebook">f</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.quicklinks">QUICK LINKS</h3>
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="about.html" data-i18n="nav.about">About NaviX</a>
+                <a href="services.html" data-i18n="nav.services">Our Services</a>
+                <a href="schedule.html">Schedule & Rates</a>
+                <a href="contact.html" data-i18n="nav.contact">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.services">OUR SERVICES</h3>
+                <a href="services.html#inland">Inland Waterway Transport</a>
+                <a href="services.html#international">International Short-Sea Shipping</a>
+                <a href="services.html#all-in-one">All-in-One Logistics</a>
+                <a href="services.html#value-added">Value-Added Services</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.contact">CONTACT INFO</h3>
+                <p data-i18n="footer.headquarters">📍 Headquarters: Can Tho City, Vietnam</p>
+                <p>📧 Email: <a href="mailto:contact@navix.vn">contact@navix.vn</a></p>
+                <p>📞 Phone: +84 XXX XXX XXX</p>
+                <p data-i18n="footer.hours">🕐 Business Hours: Mon-Fri 8:00-18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 NaviX Maritime Solutions Co., Ltd. | <span data-i18n="footer.rights">All Rights Reserved</span> | <span data-i18n="footer.privacy">Privacy Policy</span> | <span data-i18n="footer.terms">Terms of Service</span></p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

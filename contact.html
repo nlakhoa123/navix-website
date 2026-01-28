@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - NaviX Maritime Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="images/logo.jpg" alt="NaviX Logo">
+                <span>NaviX</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" data-i18n="nav.home">HOME</a></li>
+                <li><a href="about.html" data-i18n="nav.about">ABOUT</a></li>
+                <li><a href="services.html" data-i18n="nav.services">SERVICES</a></li>
+                <li><a href="schedule.html" data-i18n="nav.schedule">SCHEDULE & QUOTE</a></li>
+                <li><a href="resources.html" data-i18n="nav.resources">RESOURCES</a></li>
+                <li><a href="contact.html" data-i18n="nav.contact">CONTACT</a></li>
+                <li><button class="lang-toggle">EN/VI</button></li>
+                <li><a href="schedule.html#quote" class="cta-nav-btn" data-i18n="nav.getquote">GET QUOTE</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <h1 data-i18n="contact.hero.title">GET IN TOUCH WITH NAVIX</h1>
+        <p data-i18n="contact.hero.subtitle">Your Partner in Mekong Delta Logistics</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-column">
+                <h2 data-i18n="contact.form.title">SEND US A MESSAGE</h2>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="interest" data-i18n="contact.interest">I'm interested in: *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Please select...</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="domestic">Domestic Transport Quote</option>
+                            <option value="international">International Shipping Quote</option>
+                            <option value="all-in-one">All-in-One Solution</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="investor">Investor Relations</option>
+                            <option value="career">Career Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullName" data-i18n="contact.fullname">Full Name: *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-i18n="contact.company">Company Name: *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.email">Email Address: *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="contact.phone">Phone Number: *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location" data-i18n="contact.location">Location (City/Province): *</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.message">Your Message: *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="contact.method">Preferred Contact Method:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="contactEmail" checked> Email</label>
+                            <label><input type="checkbox" name="contactPhone"> Phone Call</label>
+                            <label><input type="checkbox" name="contactWhatsapp"> WhatsApp</label>
+                            <label><input type="checkbox" name="contactMeeting"> In-person Meeting (Can Tho)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hearAbout">How did you hear about us?</label>
+                        <select id="hearAbout" name="hearAbout">
+                            <option value="">Please select...</option>
+                            <option value="google">Google Search</option>
+                            <option value="referral">Referral</option>
+                            <option value="social">Social Media</option>
+                            <option value="event">Industry Event</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="newsletter">
+                            I agree to receive logistics insights and updates from NaviX
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn" data-i18n="contact.submit">
+                        <span>SEND MESSAGE</span>
+                        <span class="loader"></span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-column">
+                <div class="info-box">
+                    <h3 data-i18n="contact.headquarters">📍 HEADQUARTERS</h3>
+                    <p><strong data-i18n="contact.company.name">NaviX Maritime Solutions Co., Ltd.</strong></p>
+                    <p data-i18n="contact.company.location">Can Tho City, Vietnam</p>
+                    <div class="map-placeholder">
+                        <img src="images/hình_tòa_nhà_công_ty.png" alt="NaviX Headquarters">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3 data-i18n="contact.details">📞 CONTACT DETAILS</h3>
+                    <p><strong data-i18n="contact.details.general">General Inquiries:</strong><br><a href="mailto:info@navixmaritime.com">info@navixmaritime.com</a></p>
+                    <p><strong data-i18n="contact.details.sales">Sales & Quotes:</strong><br><a href="mailto:quotes@navixmaritime.com">quotes@navixmaritime.com</a></p>
+                    <p><strong data-i18n="contact.details.operations">Operations:</strong><br><a href="mailto:ops@navixmaritime.com">ops@navixmaritime.com</a></p>
+                    <p><strong data-i18n="contact.details.phone">Phone:</strong><br>+84 XXX XXX XXX</p>
+                </div>
+
+                <div class="info-box">
+                    <h3 data-i18n="contact.hours.title">🕐 BUSINESS HOURS</h3>
+                    <p data-i18n="contact.hours.weekday"><strong>Monday - Friday:</strong> 8:00 AM - 6:00 PM</p>
+                    <p data-i18n="contact.hours.saturday"><strong>Saturday:</strong> 8:00 AM - 12:00 PM</p>
+                    <p data-i18n="contact.hours.sunday"><strong>Sunday:</strong> Closed</p>
+                    <p data-i18n="contact.hours.holiday"><strong>Vietnamese Holidays:</strong> Closed</p>
+                </div>
+
+                <div class="info-box">
+                    <h3 data-i18n="contact.connect">📱 CONNECT WITH US</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <span>in</span> LinkedIn
+                        </a>
+                        <a href="#" class="social-link">
+                            <span>f</span> Facebook
+                        </a>
+                        <a href="#" class="social-link">
+                            <span>T</span> TikTok
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section fade-in">
+        <h2 class="section-title" data-i18n="contact.faq.title">FREQUENTLY ASKED QUESTIONS</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What makes NaviX different from other logistics companies?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Unlike asset-light competitors, we own and operate our vessels (Alizé I and Aquaterra I). This gives us 100% control over schedules, ensuring reliability that other companies dependent on third parties cannot guarantee. Plus, our focus on SME consolidation makes us ideal for businesses with smaller shipment volumes.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How much can I save compared to road transport?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Typically 30-50% on domestic routes. For example, our inland waterway rate is 280,000 VND/ton, while road transport often costs 400,000-550,000 VND/ton for the same route. Additional savings come from our integrated solution reducing handling and administrative costs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Do you handle customs clearance for exports to China?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! We provide full customs and quarantine support. Our team assists with documentation, certificate preparation (Certificate of Origin, Phytosanitary Certificates), and coordinates with agents at both Cai Mep and Shenzhen ports to ensure smooth clearance.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What is your minimum shipment volume?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We specialize in LCL (Less than Container Load) consolidation, making us perfect for SMEs. There's no strict minimum - we can handle shipments from 1 ton upwards. Our model is designed specifically to serve businesses that larger shipping lines often overlook.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How do I track my shipment?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Once booked, you'll receive a unique Bill of Lading number. Use our online tracking tool on our website or contact our customer service team. We're developing a real-time tracking system for future implementation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>What types of cargo do you accept?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We handle general cargo, agricultural products, fisheries, and manufactured goods. We have specialized capabilities for refrigerated cargo (Reefer containers). Dangerous goods require special arrangements - please contact us to discuss.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>How far in advance should I book?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We recommend booking at least 7 days in advance for domestic routes and 10-14 days for international routes to ensure space availability. Last-minute bookings are subject to availability.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Can you help with imports from China to Vietnam?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! Our Aquaterra I operates round-trip, bringing imports and raw materials from Shenzhen to Cai Mep. We handle the complete import process including customs clearance in Vietnam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in">
+        <div class="cta-content">
+            <h2>READY TO OPTIMIZE YOUR SUPPLY CHAIN?</h2>
+            <p>Contact us today for a personalized consultation.</p>
+            <div class="cta-buttons">
+                <a href="schedule.html#quote" class="btn-primary">REQUEST A CALL BACK</a>
+                <a href="schedule.html#quote" class="btn-secondary">SCHEDULE A MEETING</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>NAVIX MARITIME SOLUTIONS</h3>
+                <p data-i18n="footer.tagline">"Accompanying and developing with SMEs"</p>
+                <div class="social-icons">
+                    <a href="#" title="LinkedIn">in</a>
+                    <a href="#" title="Facebook">f</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.quicklinks">QUICK LINKS</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About NaviX</a>
+                <a href="services.html">Our Services</a>
+                <a href="schedule.html">Schedule & Rates</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.services">OUR SERVICES</h3>
+                <a href="services.html#inland">Inland Waterway Transport</a>
+                <a href="services.html#international">International Short-Sea Shipping</a>
+                <a href="services.html#all-in-one">All-in-One Logistics</a>
+                <a href="services.html#value-added">Value-Added Services</a>
+            </div>
+            <div class="footer-column">
+                <h3 data-i18n="footer.contact">CONTACT INFO</h3>
+                <p data-i18n="footer.headquarters">📍 Headquarters: Can Tho City, Vietnam</p>
+                <p>📧 Email: info@navixmaritime.com</p>
+                <p>📞 Phone: +84 XXX XXX XXX</p>
+                <p data-i18n="footer.hours">🕐 Business Hours: Mon-Fri 8:00-18:00</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 NaviX Maritime Solutions Co., Ltd. | <span data-i18n="footer.rights">All Rights Reserved</span> | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
