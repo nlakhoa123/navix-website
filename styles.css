@@ -57,13 +57,14 @@ nav {
     gap: 12px;
     font-size: 1.4rem;
     font-weight: 800;
-    color: var(--secondary-blue);
+    color: #003D82;
     text-decoration: none;
 }
 
 .logo span {
     font-weight: 900;
     letter-spacing: 0.5px;
+    color: #003D82;
 }
 
 .logo img {
