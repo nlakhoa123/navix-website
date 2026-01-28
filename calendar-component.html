@@ -1,0 +1,336 @@
+<!-- Calendar View Component - Thêm vào schedule.html sau schedule table -->
+<section class="calendar-view-section fade-in">
+    <h2 class="section-title" data-i18n="schedule.calendar.title">MONTHLY SAILING CALENDAR</h2>
+    <p class="calendar-subtitle" data-i18n="schedule.calendar.subtitle">Visual overview of vessel departures for January 2026</p>
+    
+    <div class="calendar-legend">
+        <div class="legend-item">
+            <span class="legend-color alize"></span>
+            <span data-i18n="schedule.calendar.alize">Alizé I (Can Tho → Cai Mep)</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color aquaterra"></span>
+            <span data-i18n="schedule.calendar.aquaterra">Aquaterra I (Cai Mep ↔ Shenzhen)</span>
+        </div>
+    </div>
+    
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button class="calendar-nav prev" id="prevMonth">‹</button>
+            <h3 class="calendar-month" id="currentMonth">January 2026</h3>
+            <button class="calendar-nav next" id="nextMonth">›</button>
+        </div>
+        
+        <div class="calendar-grid">
+            <!-- Day headers -->
+            <div class="calendar-day-header" data-i18n="calendar.sun">Sun</div>
+            <div class="calendar-day-header" data-i18n="calendar.mon">Mon</div>
+            <div class="calendar-day-header" data-i18n="calendar.tue">Tue</div>
+            <div class="calendar-day-header" data-i18n="calendar.wed">Wed</div>
+            <div class="calendar-day-header" data-i18n="calendar.thu">Thu</div>
+            <div class="calendar-day-header" data-i18n="calendar.fri">Fri</div>
+            <div class="calendar-day-header" data-i18n="calendar.sat">Sat</div>
+            
+            <!-- Calendar days will be dynamically generated here -->
+            <div id="calendarDays"></div>
+        </div>
+    </div>
+    
+    <p class="calendar-note" data-i18n="schedule.calendar.note">
+        * Click on a sailing date for more details. Schedule subject to weather and port conditions.
+    </p>
+</section>
+
+<!-- CSS cho Calendar Component -->
+<style>
+.calendar-view-section {
+    padding: 4rem 5%;
+    background: #f8f9fa;
+}
+
+.calendar-subtitle {
+    text-align: center;
+    color: #6c757d;
+    margin: -1rem 0 2rem 0;
+    font-size: 1rem;
+}
+
+.calendar-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-color.alize {
+    background: linear-gradient(135deg, #004aad 0%, #0066cc 100%);
+}
+
+.legend-color.aquaterra {
+    background: linear-gradient(135deg, #00a86b 0%, #00d084 100%);
+}
+
+.calendar-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.calendar-month {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.calendar-nav {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.calendar-nav:hover {
+    background: var(--secondary-orange);
+    transform: scale(1.1);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #e9ecef;
+    border: 1px solid #e9ecef;
+}
+
+.calendar-day-header {
+    background: var(--primary-blue);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.calendar-day {
+    background: white;
+    padding: 0.75rem;
+    min-height: 100px;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.calendar-day:hover {
+    background: #f8f9fa;
+}
+
+.calendar-day.other-month {
+    background: #f8f9fa;
+    color: #adb5bd;
+}
+
+.calendar-day.today {
+    background: #fff3cd;
+}
+
+.day-number {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.vessel-marker {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.vessel-marker:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.vessel-marker.alize {
+    background: linear-gradient(135deg, #004aad 0%, #0066cc 100%);
+}
+
+.vessel-marker.aquaterra {
+    background: linear-gradient(135deg, #00a86b 0%, #00d084 100%);
+}
+
+.vessel-marker.outbound::before {
+    content: "→ ";
+}
+
+.vessel-marker.inbound::before {
+    content: "← ";
+}
+
+.calendar-note {
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 1rem;
+    }
+    
+    .calendar-day {
+        min-height: 80px;
+        padding: 0.5rem;
+    }
+    
+    .calendar-day-header {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .vessel-marker {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .day-number {
+        font-size: 0.85rem;
+    }
+}
+</style>
+
+<!-- JavaScript cho Calendar -->
+<script>
+// Lịch khởi hành tháng 1/2026
+const sailingSchedule = {
+    january2026: {
+        // Alizé I: 12 chuyến/tháng (Can Tho → Cai Mep)
+        alize: [2, 5, 7, 10, 12, 15, 17, 20, 22, 25, 27, 30],
+        // Aquaterra I: 4 chuyến outbound (Cai Mep → Shenzhen) + 4 return
+        aquaterra_out: [4, 11, 18, 25],
+        aquaterra_in: [8, 15, 22, 29]
+    }
+};
+
+function generateCalendar(year, month) {
+    const calendarDays = document.getElementById('calendarDays');
+    if (!calendarDays) return;
+    
+    calendarDays.innerHTML = '';
+    
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+    const daysInPrevMonth = new Date(year, month, 0).getDate();
+    
+    const today = new Date();
+    const isCurrentMonth = today.getMonth() === month && today.getFullYear() === year;
+    
+    // Previous month days
+    for (let i = firstDay - 1; i >= 0; i--) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day other-month';
+        dayDiv.innerHTML = `<div class="day-number">${daysInPrevMonth - i}</div>`;
+        calendarDays.appendChild(dayDiv);
+    }
+    
+    // Current month days
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day';
+        
+        if (isCurrentMonth && day === today.getDate()) {
+            dayDiv.classList.add('today');
+        }
+        
+        let dayContent = `<div class="day-number">${day}</div>`;
+        
+        // Kiểm tra lịch khởi hành
+        const schedule = sailingSchedule.january2026;
+        
+        if (schedule.alize.includes(day)) {
+            dayContent += '<div class="vessel-marker alize outbound">Alizé I</div>';
+        }
+        
+        if (schedule.aquaterra_out.includes(day)) {
+            dayContent += '<div class="vessel-marker aquaterra outbound">Aquaterra I</div>';
+        }
+        
+        if (schedule.aquaterra_in.includes(day)) {
+            dayContent += '<div class="vessel-marker aquaterra inbound">Aquaterra I</div>';
+        }
+        
+        dayDiv.innerHTML = dayContent;
+        
+        // Add click event for vessel markers
+        dayDiv.querySelectorAll('.vessel-marker').forEach(marker => {
+            marker.addEventListener('click', () => {
+                const vessel = marker.textContent;
+                const direction = marker.classList.contains('outbound') ? 'Outbound' : 'Inbound';
+                alert(`${vessel} - ${direction}\nDate: ${day} January 2026\n\nClick "SELECT" in the schedule table above to book this sailing.`);
+            });
+        });
+        
+        calendarDays.appendChild(dayDiv);
+    }
+    
+    // Next month days
+    const totalCells = calendarDays.children.length;
+    const remainingCells = 42 - totalCells; // 6 rows x 7 days
+    
+    for (let day = 1; day <= remainingCells; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'calendar-day other-month';
+        dayDiv.innerHTML = `<div class="day-number">${day}</div>`;
+        calendarDays.appendChild(dayDiv);
+    }
+}
+
+// Initialize calendar
+document.addEventListener('DOMContentLoaded', () => {
+    generateCalendar(2026, 0); // January 2026
+    
+    // Month navigation (có thể mở rộng sau)
+    const prevBtn = document.getElementById('prevMonth');
+    const nextBtn = document.getElementById('nextMonth');
+    
+    if (prevBtn) prevBtn.style.visibility = 'hidden'; // Chỉ hiển thị January
+    if (nextBtn) nextBtn.style.visibility = 'hidden';
+});
+</script>

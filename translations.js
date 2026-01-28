@@ -54,6 +54,8 @@ const translations = {
         'quote.step2': 'BƯỚC 2: NHẬP CHI TIẾT HÀNG HÓA',
         'quote.cargo': 'Loại hàng hóa',
         'quote.weight': 'Trọng lượng ước tính (tấn) hoặc TEU',
+        'quote.weight.tons': 'Trọng lượng ước tính (tấn)',
+        'quote.weight.teu': 'Số lượng container (TEU)',
         'quote.calculate': 'TÍNH BÁO GIÁ',
         
         // Quote Options
@@ -61,10 +63,10 @@ const translations = {
         'quote.route.international': 'Cái Mép → Thâm Quyến (Quốc tế)',
         'quote.route.allinone': 'Trọn gói (Cần Thơ → Thâm Quyến)',
         
-        'quote.cargo.general': 'Hàng hóa chung',
-        'quote.cargo.refrigerated': 'Hàng lạnh',
-        'quote.cargo.agriculture': 'Nông sản',
-        'quote.cargo.fisheries': 'Thủy sản',
+        'quote.cargo.general': '📦 Hàng hóa chung',
+        'quote.cargo.refrigerated': '❄️ Hàng lạnh',
+        'quote.cargo.agriculture': '🌾 Nông sản',
+        'quote.cargo.fisheries': '🐟 Thủy sản',
         
         // Modal
         'modal.title': 'BÁO GIÁ CƯỚC PHÍ CỦA BẠN',
@@ -119,6 +121,32 @@ const translations = {
         'about.value3.desc': 'Chúng tôi là đối tác chiến lược, không chỉ là nhà cung cấp dịch vụ. Chúng tôi cung cấp giải pháp logistics linh hoạt và hỗ trợ xuất khẩu chuyên nghiệp, tạo điều kiện tối ưu cho các SME Đồng bằng sông Cửu Long tiếp cận thị trường quốc tế.',
         
         'about.fleet.title': 'GẶP GỠ ĐỘI TÀU CHIẾN LƯỢC',
+        
+        // Fleet - Alizé I
+        'about.fleet.alize.name': 'NAVIX ALIZÉ I',
+        'about.fleet.alize.tagline': '"Gió Nội Địa" - Biểu Tượng Ổn Định',
+        'about.fleet.alize.capacity': 'Tải trọng 600 DWT',
+        'about.fleet.alize.route': 'Tuyến nội địa: Cần Thơ – Cái Mép',
+        'about.fleet.alize.frequency': 'Tần suất: 12 chuyến/tháng',
+        'about.fleet.alize.role': 'Vai trò cốt lõi: Thiết lập độ tin cậy cho hoạt động nội địa',
+        
+        // Fleet - Aquaterra I
+        'about.fleet.aquaterra.name': 'NAVIX AQUATERRA I',
+        'about.fleet.aquaterra.tagline': '"Cầu Nối Giữa Đất Liền & Biển"',
+        'about.fleet.aquaterra.capacity': 'Tải trọng 12,300 DWT',
+        'about.fleet.aquaterra.route': 'Tuyến quốc tế: Cái Mép – Thâm Quyến',
+        'about.fleet.aquaterra.frequency': 'Tần suất: 4 chuyến/tháng (Khứ hồi)',
+        'about.fleet.aquaterra.role': 'Vai trò cốt lõi: Tiếp cận thị trường quốc tế trực tiếp',
+        
+        // Philosophy
+        'about.philosophy.title': 'CÁCH CHÚNG TÔI LÀM VIỆC: LINH HOẠT • CHUYÊN NGHIỆP • THỰC TIỄN',
+        'about.philosophy.flex.title': 'LINH HOẠT',
+        'about.philosophy.flex.desc': 'Ứng biến thông minh trong khuôn khổ rõ ràng. Chúng tôi khuyến khích giải pháp đổi mới đồng thời đảm bảo tuân thủ pháp luật và trách nhiệm tài chính.',
+        'about.philosophy.prof.title': 'CHUYÊN NGHIỆP',
+        'about.philosophy.prof.desc': 'Tôn trọng, minh bạch và trách nhiệm giải trình trong mọi tương tác. Chính sách rõ ràng và kết quả đo lường được hướng dẫn hoạt động của chúng tôi.',
+        'about.philosophy.prac.title': 'THỰC TIỄN',
+        'about.philosophy.prac.desc': 'Quyết định dựa trên dữ liệu và phương pháp hướng đến kết quả. Chúng tôi ưu tiên kết quả khả thi, hữu hình thay vì sự phức tạp không cần thiết.',
+        
         'about.cta.title': 'SẴN SÀNG TỐI ƯU HÓA CHUỖI CUNG ỨNG CỦA BẠN?',
         'about.cta.desc': 'Hợp tác với NaviX để có giải pháp logistics đáng tin cậy, hiệu quả về chi phí.',
         'about.cta.btn': 'LIÊN HỆ NGAY HÔM NAY',
@@ -210,9 +238,24 @@ const translations = {
         'schedule.route1': 'Cần Thơ → Cái Mép',
         'schedule.route2': 'Cái Mép → Thâm Quyến',
         'schedule.route3': 'Thâm Quyến → Cái Mép',
-        'schedule.frequency1': '15 chuyến/tháng',
+        'schedule.frequency1': '12 chuyến/tháng',
         'schedule.frequency2': '4 chuyến/tháng',
         'schedule.note': '*Lịch trình được cập nhật theo thời gian thực. Ngày tháng có thể thay đổi tùy theo điều kiện thời tiết và hoạt động cảng. Tất cả giờ theo Giờ Việt Nam (GMT+7).',
+        
+        // Calendar View
+        'schedule.calendar.title': 'LỊCH KHỞI HÀNH HÀNG THÁNG',
+        'schedule.calendar.subtitle': 'Tổng quan trực quan về lịch khởi hành tàu tháng 1/2026',
+        'schedule.calendar.alize': 'Alizé I (Cần Thơ → Cái Mép)',
+        'schedule.calendar.aquaterra': 'Aquaterra I (Cái Mép ↔ Thâm Quyến)',
+        'schedule.calendar.note': '* Nhấp vào ngày khởi hành để xem chi tiết. Lịch trình có thể thay đổi theo thời tiết và điều kiện cảng.',
+        'calendar.sun': 'CN',
+        'calendar.mon': 'T2',
+        'calendar.tue': 'T3',
+        'calendar.wed': 'T4',
+        'calendar.thu': 'T5',
+        'calendar.fri': 'T6',
+        'calendar.sat': 'T7',
+        
         'schedule.quote.title': 'NHẬN BÁO GIÁ CƯỚC PHÍ NGAY LẬP TỨC',
         'schedule.wizard.step1': 'Chọn tuyến',
         'schedule.wizard.step2': 'Chi tiết hàng hóa',
@@ -477,14 +520,16 @@ const translations = {
         'quote.step2': 'STEP 2: ENTER CARGO DETAILS - Cargo Type',
         'quote.cargo': 'Cargo Type',
         'quote.weight': 'Estimated Weight (tons) or TEU',
+        'quote.weight.tons': 'Estimated Weight (tons)',
+        'quote.weight.teu': 'Number of Containers (TEU)',
         'quote.calculate': 'CALCULATE QUOTE',
         'quote.route.domestic': 'Can Tho → Cai Mep (Domestic)',
         'quote.route.international': 'Cai Mep → Shenzhen (International)',
         'quote.route.allinone': 'All-in-One (Can Tho → Shenzhen)',
-        'quote.cargo.general': 'General Goods',
-        'quote.cargo.refrigerated': 'Refrigerated',
-        'quote.cargo.agriculture': 'Agriculture',
-        'quote.cargo.fisheries': 'Fisheries',
+        'quote.cargo.general': '📦 General Goods',
+        'quote.cargo.refrigerated': '❄️ Refrigerated',
+        'quote.cargo.agriculture': '🌾 Agriculture',
+        'quote.cargo.fisheries': '🐟 Fisheries',
         
         // Modal
         'modal.title': 'YOUR CUSTOM FREIGHT QUOTE',
@@ -535,6 +580,32 @@ const translations = {
         'about.value3.title': 'EMPOWERING SMES',
         'about.value3.desc': 'We are strategic partners, not just service providers. We offer flexible logistics solutions and expert export support, creating optimal conditions for Mekong Delta SMEs to access international markets.',
         'about.fleet.title': 'MEET OUR STRATEGIC FLEET',
+        
+        // Fleet - Alizé I
+        'about.fleet.alize.name': 'NAVIX ALIZÉ I',
+        'about.fleet.alize.tagline': '"Domestic Wind" - Symbolizing Stability',
+        'about.fleet.alize.capacity': '600 DWT Capacity',
+        'about.fleet.alize.route': 'Domestic Route: Can Tho – Cai Mep',
+        'about.fleet.alize.frequency': 'Frequency: 12 trips/month',
+        'about.fleet.alize.role': 'Core Role: Establishing reliability for inland operations',
+        
+        // Fleet - Aquaterra I
+        'about.fleet.aquaterra.name': 'NAVIX AQUATERRA I',
+        'about.fleet.aquaterra.tagline': '"Bridge Between Land & Sea"',
+        'about.fleet.aquaterra.capacity': '12,300 DWT Capacity',
+        'about.fleet.aquaterra.route': 'International Route: Cai Mep – Shenzhen',
+        'about.fleet.aquaterra.frequency': 'Frequency: 4 trips/month (Round Trip)',
+        'about.fleet.aquaterra.role': 'Core Role: Direct international market access',
+        
+        // Philosophy
+        'about.philosophy.title': 'HOW WE WORK: FLEXIBILITY • PROFESSIONALISM • PRACTICALITY',
+        'about.philosophy.flex.title': 'FLEXIBILITY',
+        'about.philosophy.flex.desc': 'Smart improvisation within clear frameworks. We encourage innovative solutions while ensuring legal compliance and financial responsibility.',
+        'about.philosophy.prof.title': 'PROFESSIONALISM',
+        'about.philosophy.prof.desc': 'Respect, transparency, and accountability in all interactions. Clear policies and measurable results guide our operations.',
+        'about.philosophy.prac.title': 'PRACTICALITY',
+        'about.philosophy.prac.desc': 'Data-driven decisions and result-oriented approaches. We prioritize feasible, tangible outcomes over unnecessary complexity.',
+        
         'about.cta.title': 'READY TO OPTIMIZE YOUR SUPPLY CHAIN?',
         'about.cta.desc': 'Partner with NaviX for reliable, cost-effective logistics solutions.',
         'about.cta.btn': 'GET IN TOUCH TODAY',
@@ -624,9 +695,24 @@ const translations = {
         'schedule.route1': 'Can Tho → Cai Mep',
         'schedule.route2': 'Cai Mep → Shenzhen',
         'schedule.route3': 'Shenzhen → Cai Mep',
-        'schedule.frequency1': '15 trips/month',
+        'schedule.frequency1': '12 trips/month',
         'schedule.frequency2': '4 trips/month',
         'schedule.note': '*Schedule is updated in real-time. Dates are subject to weather conditions and port operations. All times are Vietnam Time (GMT+7).',
+        
+        // Calendar View
+        'schedule.calendar.title': 'MONTHLY SAILING CALENDAR',
+        'schedule.calendar.subtitle': 'Visual overview of vessel departures for January 2026',
+        'schedule.calendar.alize': 'Alizé I (Can Tho → Cai Mep)',
+        'schedule.calendar.aquaterra': 'Aquaterra I (Cai Mep ↔ Shenzhen)',
+        'schedule.calendar.note': '* Click on a sailing date for more details. Schedule subject to weather and port conditions.',
+        'calendar.sun': 'Sun',
+        'calendar.mon': 'Mon',
+        'calendar.tue': 'Tue',
+        'calendar.wed': 'Wed',
+        'calendar.thu': 'Thu',
+        'calendar.fri': 'Fri',
+        'calendar.sat': 'Sat',
+        
         'schedule.quote.title': 'GET YOUR INSTANT FREIGHT QUOTE',
         'schedule.wizard.step1': 'Select Route',
         'schedule.wizard.step2': 'Cargo Details',
